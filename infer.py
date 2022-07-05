@@ -1,6 +1,5 @@
 import cv2
 import torch
-import time
 import numpy as np
 import tensorrt as trt
 from collections import OrderedDict,namedtuple
@@ -99,7 +98,7 @@ def visualize(img,bbox_array):
         img = cv2.putText(img, "class:"+str(clas)+" "+str(round(score,2)), (xmin,int(ymin)-5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (105, 237, 249), 1)
     return img
 
-trt_engine = TRT_engine("./trt_model/yolov6s_float.engine")
+trt_engine = TRT_engine("./trt_model/yolov6s_half.engine")
 img1 = cv2.imread("./pictures/zidane.jpg")
 results = trt_engine.predict(img1,threshold=0.5)
 img = visualize(img1,results)
