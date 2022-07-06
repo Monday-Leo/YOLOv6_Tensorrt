@@ -1,3 +1,7 @@
+## B站教学视频
+
+https://www.bilibili.com/video/BV1ka411p7u4/
+
 ## Introduction
 
 **YOLOv6**是美团发布的**Anchor-free**目标检测模型，本仓库实现**YOLOv6端到端的Tensorrt部署**。
@@ -18,11 +22,11 @@
 
 ## Benchmark
 
-|    Model    | Size | mAP<sup>val</sup> 0.5:0.95 | GTX1650 FP16(ms) | GTX1650 FP32(ms) | ONNX (EfficientNMS) |
-| :---------: | :--: | :------------------------: | :--------------: | :--------------: | :-----------------: |
-|   YOLOv6n   | 640  |            35.0            |       6.6        |       8.7        |        model        |
-| YOLOv6-tiny | 640  |            41.3            |       10.6       |       16.7       |        model        |
-|   YOLOv6s   | 640  |            43.1            |       11.6       |       18.4       |        model        |
+|    Model    | Size | mAP<sup>val</sup> 0.5:0.95 | GTX1650 FP16(ms) | GTX1650 FP32(ms) |
+| :---------: | :--: | :------------------------: | :--------------: | :--------------: |
+|   YOLOv6n   | 640  |            35.0            |       6.6        |       8.7        |
+| YOLOv6-tiny | 640  |            41.3            |       10.6       |       16.7       |
+|   YOLOv6s   | 640  |            43.1            |       11.6       |       18.4       |
 
 说明：此处FP16,fp32预测时间包含**preprocess+inference+nms**，测速方法为warmup10次，预测100次取平均值，并未使用trtexec测速，与官方测速不同；mAP<sup>val</sup>为原始模型精度，转换后精度未测试。
 
