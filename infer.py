@@ -68,7 +68,7 @@ class TRT_engine():
 
     def predict(self,img,threshold):
         img = self.preprocess(img)
-        self.binding_addrs['image_arrays'] = int(img.data_ptr())
+        self.binding_addrs['images'] = int(img.data_ptr())
         self.context.execute_v2(list(self.binding_addrs.values()))
         nums = self.bindings['num_dets'].data[0].tolist()
         boxes = self.bindings['det_boxes'].data[0].tolist()
